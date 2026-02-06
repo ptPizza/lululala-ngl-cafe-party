@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🎉 룰루랄라 ngl 카페 창립기념 파티</title>
 
+  <!-- ✅ (5) 카톡 미리보기(OG 태그) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="룰루랄라 ngl 카페" />
+  <meta property="og:title" content="🎉 룰루랄라 ngl 카페 창립기념 파티 초대권" />
+  <meta property="og:description" content="3/8~3/10 · 신세계인재개발원 · 배달음식 & 게임 · 초대받은 분만!" />
+  <meta property="og:url" content="https://ptPizza.github.io/lululala-ngl-cafe-party/" />
+  <!-- ✅ 썸네일 이미지 파일명 반영 -->
+  <meta property="og:image" content="https://ptPizza.github.io/lululala-ngl-cafe-party/teletobi3.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     body {
       margin: 0;
@@ -58,7 +68,19 @@
       padding: 8px 18px;
       border-radius: 999px;
       font-size: 13px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+    }
+
+    /* ✅ (4) D-Day 배지 */
+    .dday {
+      display: inline-block;
+      margin: 6px 0 2px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #efe7ff;
+      color: #6b4bb8;
+      font-weight: 800;
+      font-size: 13px;
     }
 
     h1 {
@@ -165,6 +187,7 @@
       padding-left: 18px;
       font-size: 14px;
       line-height: 1.75;
+      margin: 0;
     }
 
     .footer {
@@ -195,6 +218,9 @@
 
     <div class="badge">YOU ARE INVITED</div>
 
+    <!-- ✅ (4) D-Day 표시 -->
+    <div class="dday" id="dday">파티까지 계산 중…</div>
+
     <h1>🎉 룰루랄라 ngl 카페 창립 기념 파티 ☕</h1>
 
     <div class="emoji">🥂✨🎂</div>
@@ -212,9 +238,11 @@
       <div class="row"><div class="icon">👗</div><div><b>드레스코드:</b> 편한데 귀엽게</div></div>
     </div>
 
+    <!-- ✅ (1) 보안 옵션 추가 -->
     <a class="btn-map"
        href="https://map.naver.com/p/entry/place/19288296"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
       📍 네이버 지도에서 위치 보기
     </a>
 
@@ -270,6 +298,18 @@
       </ul>
     </div>
 
+    <!-- ✅ (3) 준비물/주의사항 -->
+    <div class="section">
+      <h2>🎒 준비물 & 주의사항</h2>
+      <ul class="list">
+        <li>잠옷 OK - 편안한 옷 환영</li>
+        <li>개인 세면도구(칫솔/치약) 추천</li>
+        <li>보드게임/카드게임 들고 오면 더 신남</li>
+        <li>알레르기/못 먹는 음식은 미리 공유!</li>
+        <li><b>초대권 외부 유출 금지</b> (초대받은 분만)</li>
+      </ul>
+    </div>
+
     <!-- footer -->
     <div class="footer">
       ※ 이 링크를 받은 당신은 자동 초대 ※<br />
@@ -283,5 +323,30 @@
     </div>
 
   </div>
+
+  <!-- ✅ (4) D-Day 카운트다운 로직 -->
+  <script>
+    (function () {
+      // 파티 시작일: 2026-03-08 16:00 (KST)
+      const partyStart = new Date("2026-03-08T16:00:00+09:00");
+      const now = new Date();
+
+      const msPerDay = 24 * 60 * 60 * 1000;
+      const diffMs = partyStart.getTime() - now.getTime();
+      const diffDays = Math.ceil(diffMs / msPerDay);
+
+      const el = document.getElementById("dday");
+      if (!el) return;
+
+      if (diffMs > 0) {
+        el.textContent = `파티까지 D-${diffDays}`;
+      } else if (diffMs > -msPerDay) {
+        el.textContent = "오늘이 바로 파티데이 🎉";
+      } else {
+        const passedDays = Math.floor(Math.abs(diffMs) / msPerDay);
+        el.textContent = `파티가 시작된 지 D+${passedDays}`;
+      }
+    })();
+  </script>
 </body>
 </html>
