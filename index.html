@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>🎉 룰루랄라 ngl 카페 창립기념 파티</title>
 
   <style>
@@ -11,18 +10,22 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
         "Noto Sans KR", sans-serif;
-      background: linear-gradient(135deg, #ffe259, #ffa751);
-      height: 100vh;
+
+      /* ✅ 배경: 주황 → 파스텔 보라 그라데이션 */
+      background: linear-gradient(135deg, #eadcff, #d9c8ff, #cdbbff);
+
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 22px 0;
     }
 
     .card {
       background: #fff;
-      width: 90%;
-      max-width: 360px;
-      border-radius: 20px;
+      width: 92%;
+      max-width: 380px;
+      border-radius: 22px;
       padding: 26px 22px;
       text-align: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -30,25 +33,38 @@
     }
 
     @keyframes pop {
-      0% { transform: scale(0.9); opacity: 0; }
+      0% { transform: scale(0.92); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
-    /* 🦝 나구리 로고 */
+    /* ✅ 로고 */
+    .logo-wrap {
+      background: #faf7ff;
+      border: 1px dashed #e6dcff;
+      border-radius: 16px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
     .logo {
-      width: 120px;
-      margin: 0 auto 12px;
+      width: 100%;
+      max-width: 220px;
+      max-height: 110px;
+      height: auto;
       display: block;
+      margin: 0 auto;
+      object-fit: contain;
     }
 
     .badge {
       display: inline-block;
       background: #ff7a7a;
       color: white;
-      padding: 6px 14px;
-      border-radius: 20px;
+      padding: 8px 18px;
+      border-radius: 999px;
       font-size: 13px;
       margin-bottom: 12px;
+      letter-spacing: 0.2px;
     }
 
     h1 {
@@ -58,39 +74,128 @@
     }
 
     .emoji {
-      font-size: 40px;
-      margin: 10px 0;
+      font-size: 38px;
+      margin: 10px 0 6px;
+    }
+
+    p {
+      margin: 10px 0 0;
+      line-height: 1.6;
     }
 
     .info {
-      background: #f6f6f6;
-      border-radius: 14px;
-      padding: 14px;
+      background: #f4f4f4;
+      border-radius: 16px;
+      padding: 14px 14px;
       margin: 18px 0 12px;
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.75;
+      text-align: left;
+    }
+
+    .info .row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 6px 0;
+    }
+
+    .info .icon {
+      width: 22px;
+      text-align: center;
+      flex: 0 0 22px;
+    }
+
+    .info strong {
+      font-size: 18px;
     }
 
     .btn-map {
       display: block;
       margin-top: 14px;
-      padding: 14px;
+      padding: 16px 14px;
       background: #03c75a;
       color: white;
       text-decoration: none;
-      border-radius: 14px;
-      font-weight: 700;
+      border-radius: 16px;
+      font-weight: 800;
+      transition: transform 0.08s ease;
     }
 
-    .btn-map:active {
-      transform: scale(0.99);
+    .btn-map:active { transform: scale(0.99); }
+
+    /* ✅ 섹션(일정표/게임/배달) */
+    .section {
+      margin-top: 18px;
+      text-align: left;
+      background: #faf7ff;
+      border: 1px solid #eee6ff;
+      border-radius: 16px;
+      padding: 14px 14px;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    /* 일정표: 시간표 느낌 */
+    .timeline {
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+      background: white;
+      border-radius: 14px;
+      padding: 10px 12px;
+      border: 1px solid #efe7ff;
+    }
+
+    .time {
+      font-weight: 800;
+      color: #6b4bb8;
+    }
+
+    .note {
+      color: #666;
+      font-size: 12px;
+      margin-top: 6px;
+      line-height: 1.5;
     }
 
     .footer {
-      margin-top: 14px;
+      margin-top: 16px;
       font-size: 12px;
       color: #999;
       line-height: 1.5;
+      text-align: center;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #efe7ff;
+      color: #6b4bb8;
+      font-weight: 700;
+      margin-left: 6px;
     }
   </style>
 </head>
@@ -98,8 +203,9 @@
 <body>
   <div class="card">
 
-    <!-- 🦝 나구리 카페 로고 -->
-    <img src="./naguri-logo.jpeg" alt="나구리 카페 로고" class="logo" />
+    <div class="logo-wrap">
+      <img src="./naguri-logo.jpeg" alt="나구리 카페 로고" class="logo" />
+    </div>
 
     <div class="badge">YOU ARE INVITED</div>
 
@@ -114,10 +220,10 @@
     </p>
 
     <div class="info">
-      📅 <strong>2026. 03. 08 (일) ~ 03.10 (화)</strong><br />
-      🕖 <strong>저녁 4시</strong><br />
-      📍 <strong>신세계인재개발원</strong><br />
-      👗 <strong>드레스코드: 편한데 귀엽게</strong>
+      <div class="row"><div class="icon">📅</div><div><strong>2026. 03. 08 (일) ~ 03.10 (화)</strong></div></div>
+      <div class="row"><div class="icon">🕖</div><div><b>저녁 4시</b> <span class="pill">느슨한 집합</span></div></div>
+      <div class="row"><div class="icon">📍</div><div><b>신세계인재개발원</b></div></div>
+      <div class="row"><div class="icon">👗</div><div><b>드레스코드:</b> 편한데 귀엽게</div></div>
     </div>
 
     <a
@@ -129,9 +235,82 @@
       📍 네이버 지도에서 위치 보기
     </a>
 
+    <!-- ✅ 일정표 섹션 -->
+    <div class="section">
+      <h2>🗓️ 일정표 <span class="pill">대충 이렇다</span></h2>
+      <div class="timeline">
+        <div class="slot">
+          <div class="time">16:00 ~</div>
+          <div>
+            체크인 & 웰컴토크 (ngl 창립오픈파티 시작)
+            <div class="note">※ 늦게 와도 됨. 그냥 오기만하면됨 오면 됨.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">17:00</div>
+          <div>
+            짐풀기 & 숙소투어
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">18:00</div>
+          <div>
+            배달음식 1차 주문 & 먹방 개시
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">19:00</div>
+          <div>
+            2차 게임 라운드
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">20:30</div>
+          <div>
+            배달음식 2차 주문(가능) / 디저트 타임
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">그 이후</div>
+          <div>
+            자유시간: 수다/음악/추가 게임/바이브…
+            <div class="note">※ 협조안하는 사람은 잘떄 얼굴에 너구리 그림 그릴 예정</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ 게임 섹션 -->
+    <div class="section">
+      <h2>🎮 게임 라인업</h2>
+      <ul class="list">
+        <li>마니또게임</li>
+        <li>보드게임/카드게임 (짧게 여러 판)</li>
+        <li>랜덤 선물박스</li>        
+      </ul>
+      <div class="note">원하는 게임 있으면 미리 DM으로 “이거 해요” 던지기.</div>
+    </div>
+
+    <!-- ✅ 배달음식 플랜 섹션 -->
+    <div class="section">
+      <h2>🛵 배달음식 플랜</h2>
+      <ul class="list">
+        <li>1차: 메인 (</li>
+        <li>2차: 사이드 </li>
+        <li>디저트: 케이크/아이스크림/과일 </li>
+        <li>음료: 커피/탄산/주스 (술은 옵션 😏)</li>
+      </ul>
+      <div class="note">알레르기/못 먹는 거 있으면 꼭 알려줘요!</div>
+    </div>
+
     <div class="footer">
       ※ 이 링크를 받은 당신은 자동 초대 ※<br />
-      (길 잃기 전에 위 버튼 눌러줘요)
+      (길 잃기 전에 위 지도 버튼 눌러줘요)
     </div>
   </div>
 </body>
